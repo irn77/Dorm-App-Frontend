@@ -1,0 +1,53 @@
+/* Modal background overlay */
+.modal7-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Modal content box */
+  .modal7-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Close button */
+  .close7 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close7:hover {
+    color: red;
+  }
+  
+  /* Keyframe animation for fade-in effect */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  

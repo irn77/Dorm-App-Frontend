@@ -1,0 +1,19 @@
+/* ImageFilter.css */
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: -5px; /* Add some spacing below the filters */
+  }
+  
+  .filter-options label {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    font-weight: normal;
+    font-size: 0.9em; /* Adjust font size if needed */
+  }
+  
+  .filter-options input[type="checkbox"] {
+    margin-right: 5px;
+  }

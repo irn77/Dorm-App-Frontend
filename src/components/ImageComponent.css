@@ -1,0 +1,117 @@
+/* ImageComponent.css */
+.image-component-container {
+  position: relative;
+  text-align: center; /* Center the heading */
+}
+
+.image-header-controls {
+  display: flex;
+  justify-content: center; /* Center the filter options */
+  align-items: center; /* Vertically align the filter options and button */
+  gap: 10px; /* Spacing between filter options and button */
+  margin-bottom: 10px; /* Spacing below the controls */
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center; /* Center the filter options */
+}
+
+.filter-options label {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-weight: normal;
+  font-size: 0.9em;
+}
+
+.filter-options input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.add-image-button {
+  background-color: green;
+  color: white;
+  font-size: 24px;
+  border: none;
+  border-radius: 20%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.image-upload-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-upload-modal .modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  max-width: 500px;
+  position: relative;
+}
+
+.image-upload-modal .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.error-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 9999;
+}
+
+
+.success-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4CAF50; /* Softer success green */
+  padding: 20px 30px;
+  border-radius: 10px;
+  z-index: 1000;
+  color: #fff;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 90%;
+  width: 300px;
+}
+
+.success-modal h2 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+}
+
+.success-modal p {
+  margin: 0;
+}
