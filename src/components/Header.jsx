@@ -7,7 +7,7 @@ function Header({ headerText }) {
     <header style={styles.header}>
       {/* Header Text */}
       <div style={styles.headerText}>{headerText}</div>
-
+      
       {/* Icons (About and User) */}
       <div style={styles.icons}>
         {/* About Icon */}
@@ -20,7 +20,7 @@ function Header({ headerText }) {
         </Link> */}
 
         {/* User Icon */}
-        <User /> {/* User component is included on the right */}
+         {/* <User /> User component is included on the right */}
       </div>
     </header>
   );
@@ -34,6 +34,7 @@ const styles = {
     padding: '10px',
     backgroundColor: '#242424',
     color: 'white',
+    borderBottom: '1px solid #888',  // ← add this line
   },
   headerText: {
     fontSize: '36px',

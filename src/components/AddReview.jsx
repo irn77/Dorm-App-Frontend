@@ -14,11 +14,11 @@ function AddReview({ dormId, onReviewAdded }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!isLoggedIn) {
-      setErrorMessage('You must sign in to add a review');
-      setTimeout(() => setErrorMessage(''), 3000);
-      return;
-    }
+    // if (!isLoggedIn) {
+    //   setErrorMessage('You must sign in to add a review');
+    //   setTimeout(() => setErrorMessage(''), 3000);
+    //   return;
+    // }
 
     try {
       const response = await fetch(`${API_BASE_URL}/api/reviews`, {
@@ -52,8 +52,9 @@ function AddReview({ dormId, onReviewAdded }) {
         className="add-review-button"
         onClick={() => {
           if (!isLoggedIn) {
-            setErrorMessage('You must sign in to add a review');
-            setTimeout(() => setErrorMessage(''), 3000);
+            setShowModal(true);
+            //setErrorMessage('You must sign in to add a review');
+            //setTimeout(() => setErrorMessage(''), 3000);
           } else {
             setShowModal(true);
           }

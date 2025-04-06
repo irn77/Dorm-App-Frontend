@@ -1,0 +1,22 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  .main-container {
+    background-color: black;
+    color: white;
+  }
+  
+  .section {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #333;
+  }
+  
+  .section-content {
+    max-width: 900px;
+  }
+  

@@ -3,7 +3,7 @@ import Review from './Review';
 
 function ReviewColumn({ reviews, showDetails }) {
   if (!reviews || reviews.length === 0) {
-    return <p>No Reviews. Add the first!</p>;
+    return ;
   }
   return (
     <div>

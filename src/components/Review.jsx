@@ -4,15 +4,15 @@ import React from 'react';
 function Review({ review, showDetails }) {
   return (
     <div
-      style={{
-        border: '1px solid white',
-        padding: '10px',
-        margin: '5px',
-        borderRadius: '5px',
-        textAlign: 'left',
-        maxWidth: '600px',
-        minWidth: '600px',
-      }}
+    style={{
+      border: '1px solid white',
+      padding: '10px',
+      margin: '5px 0',
+      borderRadius: '5px',
+      textAlign: 'left',
+      width: '100%',           // make it fill the column
+      boxSizing: 'border-box', // makes padding play nicely
+    }}
     >
       <div style={{ display: 'flex', alignItems: 'flex-start' }}>
         <p style={{ wordBreak: 'break-word', marginRight: '5px', flex: 1 }}>

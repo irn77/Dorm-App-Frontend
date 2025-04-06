@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { API_BASE_URL } from '../config';
 
-//const API_BASE_URL = 'http://3.142.242.243:8000';
-
 function NeighborhoodColumn({ neighborhoodName, showAllRatings }) {
   const [dorms, setDorms] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -28,11 +26,11 @@ function NeighborhoodColumn({ neighborhoodName, showAllRatings }) {
     fetchDormsWithAvg();
   }, [neighborhoodName]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (loading) return <p style={{ color: 'white' }}>Loading...</p>;
+  if (error) return <p style={{ color: 'red' }}>Error: {error.message}</p>;
 
   const getAverageColor = (avg) => {
-    if (avg === null || avg === 0) return 'gray'; // Handle null and 0
+    if (avg === null || avg === 0) return 'gray';
     const numAvg = parseFloat(avg);
     const hue = ((numAvg - 1) / 4) * 120;
     return `hsl(${hue}, 100%, 50%)`;
@@ -44,25 +42,21 @@ function NeighborhoodColumn({ neighborhoodName, showAllRatings }) {
     } else {
       return `(${avg.toFixed(1)} Avg Rating)`;
     }
-  }
+  };
 
   return (
-    <div style={{ textAlign: 'left', marginRight: '20px', minWidth: '200px', color: 'white' }}>
-      <h3>
-        <Link to={`/neighborhood/${neighborhoodName}`} style={{ color: 'white', textDecoration: 'none' }}>
-          {neighborhoodName}
-        </Link>
-      </h3>
-      <hr />
-      <ul>
+    <div style={{ marginBottom: '1rem', color: 'white' }}>
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {dorms.map((dorm) => (
-          <li key={dorm.dorm_id}>
-            <Link to={`/dorm/${dorm.dorm_id}`} style={{ color: 'white', textDecoration: 'none' }}>
+          <li key={dorm.dorm_id} style={{ marginBottom: '0.5rem', textAlign: 'left' }}>
+            <Link
+              to={`/dorm/${dorm.dorm_id}`}
+              style={{ color: 'white', textDecoration: 'none' }}
+            >
               {dorm.name}
             </Link>
             {showAllRatings && (
-              <span style={{ color: getAverageColor(dorm.average_rating) }}>
-                {' '}
+              <span style={{ color: getAverageColor(dorm.average_rating), marginLeft: '0.5rem' }}>
                 {displayAverage(dorm.average_rating)}
               </span>
             )}

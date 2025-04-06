@@ -11,26 +11,18 @@ function ImageComponent({ dormId, images, onImageUploaded }) {
   const [errorMessage, setErrorMessage] = useState('');
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredImages, setFilteredImages] = useState(images);
-  const [showSuccessModal, setShowSuccessModal] = useState(false); // New state for success modal
+  const [imageCols, setImageCols] = useState([[], [], []]);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
-  const handleAddImageClick = () => {
-    if (isLoggedIn) {
-      setShowUpload(true);
-    } else {
-      setErrorMessage('You must be signed in to submit a photo.');
-      setTimeout(() => setErrorMessage(''), 3000);
-    }
-  };
-
+  const handleAddImageClick = () => setShowUpload(true);
   const handleCloseModal = () => {
     setShowUpload(false);
     setErrorMessage('');
   };
-
   const handleImageUploadSuccess = () => {
     setShowSuccessModal(true);
-    setShowUpload(false); // Close upload modal
-    setTimeout(() => setShowSuccessModal(false), 7000); // Close success modal after 5 seconds
+    setShowUpload(false);
+    setTimeout(() => setShowSuccessModal(false), 7000);
   };
 
   const handleFilterChange = (e) => {
@@ -44,42 +36,58 @@ function ImageComponent({ dormId, images, onImageUploaded }) {
     }
   };
 
+  const splitIntoColumns = (imageList) => {
+    const cols = [[], [], []];
+    imageList.forEach((img, idx) => {
+      cols[idx % 3].push(img);
+    });
+    return cols;
+  };
+
   useEffect(() => {
     const newFilteredImages =
       selectedFilters.length > 0
-        ? images.filter((image) => {
-            return image && image.tags && image.tags.some((tag) =>
-              selectedFilters.includes(tag)
-            );
-          })
+        ? images.filter((image) =>
+            image?.tags?.some((tag) => selectedFilters.includes(tag))
+          )
         : images;
     setFilteredImages(newFilteredImages);
+    setImageCols(splitIntoColumns(newFilteredImages));
   }, [images, selectedFilters]);
 
   return (
     <div className="image-component-container">
-      <h2><span style={{ color: 'white' }}>Dorm Images</span></h2>
+      {/* Heading + Button */}
+      <div className="image-top-header">
+        <h2 style={{ margin: 0, color: 'white' }}>Dorm Images</h2>
+        <button className="add-image-button" onClick={handleAddImageClick}>+</button>
+      </div>
 
-      <div className="image-header-controls">
+      {/* Filters below heading */}
+      <div className="image-filter-section">
         <ImageFilter
           selectedFilters={selectedFilters}
           onFilterChange={handleFilterChange}
         />
-        <button className="add-image-button" onClick={handleAddImageClick}>
-          +
-        </button>
       </div>
 
-      <ImageColumn images={filteredImages || []} />
+      {/* Image Columns */}
+      {filteredImages.length === 0 ? (
+  <p style={{ color: 'white', marginTop: '20px' }}>No images. Add the first!</p>
+) : (
+  <div style={{ display: 'flex', gap: '20px', marginTop: '10px' }}>
+    {imageCols.map((col, i) => (
+      <div key={i} style={{ flex: 1 }}>
+        <ImageColumn images={col} />
+      </div>
+    ))}
+  </div>
+)}
 
       {showUpload && (
         <div className="image-upload-modal">
           <div className="modal-content">
-            <span
-              className="close"
-              onClick={handleCloseModal}
-              style={{ color: 'black' }}
-            >
+            <span className="close" onClick={handleCloseModal} style={{ color: 'black' }}>
               &times;
             </span>
             <h3 style={{ color: 'black' }}>Upload Image</h3>

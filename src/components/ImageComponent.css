@@ -16,7 +16,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: center; /* Center the filter options */
+  justify-content: flex-start; /* <-- now left aligned */
+
 }
 
 .filter-options label {
@@ -114,4 +115,38 @@
 
 .success-modal p {
   margin: 0;
+}
+
+.image-component-container {
+  text-align: left;
+  font-size: 20px;
+}
+
+.image-top-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.image-filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.filter-options label {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.filter-options input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  cursor: pointer;
 }

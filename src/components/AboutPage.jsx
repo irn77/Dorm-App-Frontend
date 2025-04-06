@@ -1,50 +1,98 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AuthProvider } from './AuthContext';
-import Header from './Header'; // Assuming you have a Header component
-import './AboutPage.css';
+import Navbar from './Navbar';
+
+function FAQItem({ question, answer }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div
+      style={{
+        marginBottom: '1rem',
+        borderBottom: '1px solid #333',
+        paddingBottom: '0.75rem',
+      }}
+    >
+      <div
+        onClick={() => setOpen(!open)}
+        style={{
+          cursor: 'pointer',
+          color: '#f4a261',
+          fontWeight: 'bold',
+          fontSize: '1.4rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}
+      >
+        {question}
+        <span style={{ fontWeight: 'normal', color: '#888' }}>{open ? '–' : '+'}</span>
+      </div>
+      {open && (
+        <p style={{ marginTop: '0.5rem', fontSize: '1.15rem', lineHeight: '1.7' }}>{answer}</p>
+      )}
+    </div>
+  );
+}
 
 function AboutPage() {
   return (
     <AuthProvider>
-      <div style={{ textAlign: 'center', color: 'white' }}>
-        <Header headerText='About' />
-        <hr
+      <div style={{ backgroundColor: '#000', color: '#fff', minHeight: '100vh' }}>
+        <Navbar />
+
+        <div
           style={{
-            width: '200px',
-            margin: '10px auto',
-            borderColor: '#888',
-            borderStyle: 'solid',
+            maxWidth: '1000px',
+            margin: '0 auto',
+            padding: '3rem 2rem',
+            textAlign: 'left',
           }}
-        />
-        <div style={{ margin: '20px' }}>
-          <p>
-            Welcome to the Stanford Dorm Review platform! FAQ: 
-            
-            <strong>What?</strong> This website hosts information about every dorm in all 8 Staford neigbhoords. You can read honest reviews and view images by other students. You can also contribute your own  and you can contribute your own.
+        >
+          <h1 style={{ fontSize: '3rem', marginBottom: '1.5rem', color: '#f4a261' }}>
+            Learn About CardinalDorms
+          </h1>
+
+          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8' }}>
+            <strong>What:</strong> CardinalDorms is a transparent hub for Stanford dorm reviews. Students leave honest feedback — both good and bad — so you get a real sense of what living there is like.
           </p>
-          <p>
-          <strong>Why?</strong>Our goal is to help you make informed decisions about where to live during your time at Stanford. Here, you can:
+
+          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8' }}>
+            <strong>Why:</strong> Choosing dorms is difficult (for all of us). It only makes sense for there to be a system that helps us make more informed decisions.
           </p>
-          <ul>
-            <li>
-              <strong>View Reviews:</strong> Read honest and detailed reviews from fellow students about their experiences in various dorms.
-            </li>
-            <li>
-              <strong>View Images:</strong> Explore images of dorm rooms and common areas to get a visual sense of each residence.
-            </li>
-            <li>
-              <strong>Leave Reviews:</strong> Share your own experiences and insights by leaving reviews and ratings for the dorms you've lived in.
-            </li>
-            <li>
-              <strong>Upload Images:</strong> Contribute to the community by uploading images that showcase the dorms.
-            </li>
-          </ul>
-          <p>
-            Whether you're a prospective student, a current resident, or simply curious about Stanford's housing options, this platform aims to be your go-to resource. We believe that student perspectives are invaluable in understanding the true living experience in each dorm.
+
+          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8' }}>
+            <strong>How:</strong> Students leave anonymous feedback and upload images about their dorms. Others can explore that feedback freely.
           </p>
-          <p>
-            We hope this website empowers you to find the perfect dorm that meets your needs and preferences, enhancing your Stanford experience.
+
+          <p
+            style={{
+              fontStyle: 'italic',
+              fontSize: '1.2rem',
+              margin: '2rem 0',
+              lineHeight: '1.7',
+            }}
+          >
+            "We hope CardinalDorms empowers you to discover the best fit for your lifestyle and enhances your overall Stanford experience."
           </p>
+
+          <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: '#FF4500' }}>FAQ</h2>
+
+          <FAQItem
+            question="Is this really anonymous?"
+            answer="100%. We never store any identifiable data when you submit reviews or upload images."
+          />
+          <FAQItem
+            question="How are reviews moderated?"
+            answer="All submissions go through a light check for spam and inappropriate content before being published. We never flag something for being honest — candid student input is crucial."
+          />
+          <FAQItem
+            question="Have a question not listed here?"
+            answer={
+              <>
+                Contact us <a href="/contact" style={{ color: '#f4a261', textDecoration: 'underline' }}>here</a> — we'd love to help.
+              </>
+            }
+          />
         </div>
       </div>
     </AuthProvider>

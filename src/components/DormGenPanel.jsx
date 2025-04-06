@@ -1,6 +1,8 @@
 // DormGenPanel.jsx
 import React, { useState } from 'react';
 import RFModal from './RFModal';
+import { getSourceUrl } from '../utils/getSourceUrl';
+
 
 function DormGenPanel({ dorm }) {
   const [showModal, setShowModal] = useState(false);
@@ -15,9 +17,9 @@ function DormGenPanel({ dorm }) {
     setShowModal(false);
   };
 
-  const sourceUrl = dorm.neighborhood === 'Rowan'
-  ? `https://resed.stanford.edu/neighborhoods/${dorm.neighborhood}/${dorm.neighborhood}-houses/${dorm.name.toLowerCase().replace(/ /g, '-')}`
-  : `https://resed.stanford.edu/neighborhoods/${dorm.neighborhood}-neighborhood/${dorm.neighborhood}-houses/${dorm.name.toLowerCase().replace(/ /g, '-')}`;
+  //const sourceUrl = dorm.neighborhood === 'Rowan' ? `https://resed.stanford.edu/neighborhoods/${dorm.neighborhood}/${dorm.neighborhood}-houses/${dorm.name.toLowerCase().replace(/ /g, '-')}`: `https://resed.stanford.edu/neighborhoods/${dorm.neighborhood}-neighborhood/${dorm.neighborhood}-houses/${dorm.name.toLowerCase().replace(/ /g, '-')}`;
+  const sourceUrl = getSourceUrl(dorm);
+
 
 
   const hasRfInfo = dorm.dorm_rf_image || dorm.Resident_Fellows || dorm.dorm_rf_about;

@@ -6,14 +6,20 @@ import NeighborhoodImage from './NeighborhoodImage'; // Adjust the path
 import Header from './Header';
 import { AuthProvider } from './AuthContext'; // Import AuthProvider
 import { API_BASE_URL } from '../config';
+import NotFoundPage from './NotFoundPage'; 
 
-//const API_BASE_URL = 'http://3.142.242.243:8000';
 
 function NeighborhoodPage() {
   const { neighborhoodId } = useParams();
   const [dorms, setDorms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const validNeighborhoods = ['Aspen', 'Olive', 'Sequoia', 'Ginkgo', 'Redwood', 'Wisteria', 'Magnolia', 'Rowan'];
+
+  if (!validNeighborhoods.includes(neighborhoodId)) {
+  return <NotFoundPage />;
+  } 
 
   useEffect(() => {
     const fetchDorms = async () => {
