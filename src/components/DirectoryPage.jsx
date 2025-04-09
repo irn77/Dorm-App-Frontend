@@ -6,7 +6,7 @@ import NeighborhoodDirectory from './NeighborhoodDirectory';
 function DirectoryPage() {
   return (
     <AuthProvider>
-      <div style={{ backgroundColor: '#000', color: 'white', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ backgroundColor: '#1f1f1f', color: 'white', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Navbar />
         
         <div style={{ padding: '2rem', flex: 1 }}>

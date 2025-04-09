@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AuthProvider } from './AuthContext';
 import Navbar from './Navbar';
 
@@ -35,9 +35,25 @@ function FAQItem({ question, answer }) {
 }
 
 function AboutPage() {
+  const [headingFontSize, setHeadingFontSize] = useState('3rem');
+
+  useEffect(() => {
+    const updateFontSize = () => {
+      if (window.innerWidth < 480) {
+        setHeadingFontSize('2.2rem');
+      } else {
+        setHeadingFontSize('3rem');
+      }
+    };
+
+    updateFontSize();
+    window.addEventListener('resize', updateFontSize);
+    return () => window.removeEventListener('resize', updateFontSize);
+  }, []);
+
   return (
     <AuthProvider>
-      <div style={{ backgroundColor: '#000', color: '#fff', minHeight: '100vh' }}>
+      <div style={{ backgroundColor: '#1f1f1f', color: '#fff', minHeight: '100vh' }}>
         <Navbar />
 
         <div
@@ -48,33 +64,23 @@ function AboutPage() {
             textAlign: 'left',
           }}
         >
-          <h1 style={{ fontSize: '3rem', marginBottom: '1.5rem', color: '#f4a261' }}>
+          <h1 style={{ fontSize: headingFontSize, marginBottom: '1.5rem', color: '#f4a261' }}>
             Learn About CardinalDorms
           </h1>
 
-          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8' }}>
+          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8' , color: '#b4b4b4'}}>
             <strong>What:</strong> CardinalDorms is a transparent hub for Stanford dorm reviews. Students leave honest feedback — both good and bad — so you get a real sense of what living there is like.
           </p>
 
-          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8' }}>
+          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8', color: '#b4b4b4'}}>
             <strong>Why:</strong> Choosing dorms is difficult (for all of us). It only makes sense for there to be a system that helps us make more informed decisions.
           </p>
 
-          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8' }}>
+          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8', color: '#b4b4b4'}}>
             <strong>How:</strong> Students leave anonymous feedback and upload images about their dorms. Others can explore that feedback freely.
           </p>
 
-          <p
-            style={{
-              fontStyle: 'italic',
-              fontSize: '1.2rem',
-              margin: '2rem 0',
-              lineHeight: '1.7',
-            }}
-          >
-            "We hope CardinalDorms empowers you to discover the best fit for your lifestyle and enhances your overall Stanford experience."
-          </p>
-
+          
           <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: '#FF4500' }}>FAQ</h2>
 
           <FAQItem
@@ -93,7 +99,20 @@ function AboutPage() {
               </>
             }
           />
+          <p
+            style={{
+              fontStyle: 'italic',
+              fontSize: '1.2rem',
+              margin: '2rem 0',
+              lineHeight: '1.7',
+            }}
+          >
+            "We hope CardinalDorms empowers you to discover the best fit for your lifestyle and enhances your overall Stanford experience."
+          </p>
+
+
         </div>
+        
       </div>
     </AuthProvider>
   );

@@ -75,11 +75,9 @@ function ImageComponent({ dormId, images, onImageUploaded }) {
       {filteredImages.length === 0 ? (
   <p style={{ color: 'white', marginTop: '20px' }}>No images. Add the first!</p>
 ) : (
-  <div style={{ display: 'flex', gap: '20px', marginTop: '10px' }}>
-    {imageCols.map((col, i) => (
-      <div key={i} style={{ flex: 1 }}>
-        <ImageColumn images={col} />
-      </div>
+  <div className="image-grid">
+    {filteredImages.map((img, index) => (
+      <ImageColumn key={index} images={[img]} />
     ))}
   </div>
 )}

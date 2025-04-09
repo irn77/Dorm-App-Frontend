@@ -12,8 +12,8 @@ function AddReview({ dormId, onReviewAdded }) {
   const [showSuccessModal, setShowSuccessModal] = useState(false); // New state for success modal
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
+    e.preventDefault()
+    
     // if (!isLoggedIn) {
     //   setErrorMessage('You must sign in to add a review');
     //   setTimeout(() => setErrorMessage(''), 3000);
@@ -32,8 +32,7 @@ function AddReview({ dormId, onReviewAdded }) {
       if (!response.ok) {
         throw new Error('Failed to add review');
       }
-
-      onReviewAdded();
+      
       setShowModal(false);
       setErrorMessage('');
       setShowSuccessModal(true); // Show success modal

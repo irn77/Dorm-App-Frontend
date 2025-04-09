@@ -7,7 +7,7 @@ import './ContactPage.css'; // optional custom styles
 function ContactPage() {
   return (
     <AuthProvider>
-      <div style={{ backgroundColor: '#000', color: '#fff', minHeight: '100vh' }}>
+      <div style={{ backgroundColor: '#1f1f1f', color: '#fff', minHeight: '100vh' }}>
         <Navbar />
 
         <div className="contact-container">

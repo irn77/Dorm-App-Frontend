@@ -8,6 +8,9 @@ import SearchBarRotate from './SearchBarRotate';
 import DirectoryPage from './DirectoryPage';
 
 function HomePage() {
+const screenWidth = window.innerWidth;
+const inputWidth = screenWidth < 500 ? screenWidth - 40 : 450; // 20px margin on each side
+
   return (
     <AuthProvider>
       <div className="homepage-container">
@@ -28,7 +31,7 @@ function HomePage() {
           <div className="hero-right">
       <div className="search-wrapper">
         <p className="search-label">Search Stanford's 73 dorms:</p>
-        <SearchBarRotate customStyles={{ width: '100%', maxWidth: '450px', height: '60px' }} />
+        <SearchBarRotate customStyles={{ width: `${inputWidth}%`, maxWidth: '450px', height: '60px' }} />
       </div>
     </div>
 

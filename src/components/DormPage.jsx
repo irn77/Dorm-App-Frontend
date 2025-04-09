@@ -7,6 +7,7 @@ import { API_BASE_URL } from '../config';
 import NotFoundPage from './NotFoundPage';
 import Navbar from './Navbar';
 import DormLeftPanel from './DormLeftPanel';
+import './DormPage.css';
 
 function DormPage() {
   const { dormId } = useParams();
@@ -46,68 +47,27 @@ function DormPage() {
 
   return (
     <AuthProvider>
-      <div
-        style={{
-          backgroundColor: '#1A1A1A',
-          color: 'white',
-          height: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
+      <div className="dorm-page">
         <Navbar />
 
-        <div style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
+        <div className="dorm-content-container">
           {/* Left Panel */}
-          <div style={{ display: 'flex', position: 'relative' }}>
-            <div
-              style={{
-                width: '350px',
-                minWidth: '300px',
-                maxWidth: '400px',
-                overflowY: 'auto',
-                paddingLeft: '65px',
-                paddingTop: '6px',
-                paddingRight: '20px',
-              }}
-            >
-              <DormLeftPanel dorm={dorm} />
-            </div>
-            <div style={{ width: '1px', backgroundColor: '#444', height: '100%' }} />
+          <div className="dorm-left-panel">
+            <DormLeftPanel dorm={dorm} />
           </div>
 
           {/* Right Content */}
-          <div
-            style={{
-              flex: 1,
-              overflowY: 'auto',
-              paddingTop: '20px',
-              paddingLeft: '40px',
-              paddingRight: '40px',
-              paddingBottom: '20px',
-              position: 'relative',
-            }}
-          >
-            {/* Toggle switch */}
-            <div style={{ position: 'absolute', top: '20px', right: '40px', zIndex: 10 }}>
+          <div className="dorm-right-panel">
+            <div className="dorm-toggle">
               <span
                 onClick={() => setActiveTab(activeTab === 'reviews' ? 'images' : 'reviews')}
-                style={{
-                  color: '#f4a261',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  backgroundColor: '#1a1a1a',
-                  padding: '4px 8px',
-                  borderRadius: '6px',
-                }}
               >
                 {activeTab === 'reviews' ? 'View images' : 'View reviews'}
               </span>
             </div>
 
-            {/* Review / Image Component */}
             {activeTab === 'images' ? (
-              <div style={{ marginLeft: '20px' }}>
+              <div style={{ marginTop: '20px' }}>
                 <ImageComponent
                   dormId={dormId}
                   images={dorm.image_urls || []}
@@ -115,7 +75,7 @@ function DormPage() {
                 />
               </div>
             ) : (
-              <div style={{ marginRight: '20px' }}>
+              <div style={{ marginTop: '20px' }}>
                 <ReviewComponent dormId={dormId} />
               </div>
             )}
