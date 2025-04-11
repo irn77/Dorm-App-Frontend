@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AuthProvider } from './AuthContext';
 import Navbar from './Navbar';
+import colors from '../styles/colors'; // ✅ import color constants
 
 function FAQItem({ question, answer }) {
   const [open, setOpen] = useState(false);
@@ -9,7 +10,7 @@ function FAQItem({ question, answer }) {
     <div
       style={{
         marginBottom: '1rem',
-        borderBottom: '1px solid #333',
+        borderBottom: `1px solid ${colors.border}`,
         paddingBottom: '0.75rem',
       }}
     >
@@ -17,7 +18,7 @@ function FAQItem({ question, answer }) {
         onClick={() => setOpen(!open)}
         style={{
           cursor: 'pointer',
-          color: '#f4a261',
+          color: colors.orange,
           fontWeight: 'bold',
           fontSize: '1.4rem',
           display: 'flex',
@@ -25,10 +26,19 @@ function FAQItem({ question, answer }) {
         }}
       >
         {question}
-        <span style={{ fontWeight: 'normal', color: '#888' }}>{open ? '–' : '+'}</span>
+        <span style={{ fontWeight: 'normal', color: colors.muted }}>{open ? '–' : '+'}</span>
       </div>
       {open && (
-        <p style={{ marginTop: '0.5rem', fontSize: '1.15rem', lineHeight: '1.7' }}>{answer}</p>
+        <p
+          style={{
+            marginTop: '0.5rem',
+            fontSize: '1.15rem',
+            lineHeight: '1.7',
+            color: colors.lightGray,
+          }}
+        >
+          {answer}
+        </p>
       )}
     </div>
   );
@@ -53,7 +63,7 @@ function AboutPage() {
 
   return (
     <AuthProvider>
-      <div style={{ backgroundColor: '#1f1f1f', color: '#fff', minHeight: '100vh' }}>
+      <div style={{ backgroundColor: colors.darkBg, color: colors.white, minHeight: '100vh' }}>
         <Navbar />
 
         <div
@@ -64,24 +74,25 @@ function AboutPage() {
             textAlign: 'left',
           }}
         >
-          <h1 style={{ fontSize: headingFontSize, marginBottom: '1.5rem', color: '#f4a261' }}>
+          <h1 style={{ fontSize: headingFontSize, marginBottom: '1.5rem', color: colors.orange }}>
             Learn About CardinalDorms
           </h1>
 
-          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8' , color: '#b4b4b4'}}>
+          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8', color: colors.lightGray }}>
             <strong>What:</strong> CardinalDorms is a transparent hub for Stanford dorm reviews. Students leave honest feedback — both good and bad — so you get a real sense of what living there is like.
           </p>
 
-          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8', color: '#b4b4b4'}}>
+          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8', color: colors.lightGray }}>
             <strong>Why:</strong> Choosing dorms is difficult (for all of us). It only makes sense for there to be a system that helps us make more informed decisions.
           </p>
 
-          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8', color: '#b4b4b4'}}>
+          <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8', color: colors.lightGray }}>
             <strong>How:</strong> Students leave anonymous feedback and upload images about their dorms. Others can explore that feedback freely.
           </p>
 
-          
-          <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: '#FF4500' }}>FAQ</h2>
+          <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: colors.headingAccent }}>
+            FAQ
+          </h2>
 
           <FAQItem
             question="Is this really anonymous?"
@@ -95,24 +106,23 @@ function AboutPage() {
             question="Have a question not listed here?"
             answer={
               <>
-                Contact us <a href="/contact" style={{ color: '#f4a261', textDecoration: 'underline' }}>here</a> — we'd love to help.
+                Contact us <a href="/contact" style={{ color: colors.orange, textDecoration: 'underline' }}>here</a> — we'd love to help.
               </>
             }
           />
+
           <p
             style={{
               fontStyle: 'italic',
               fontSize: '1.2rem',
               margin: '2rem 0',
               lineHeight: '1.7',
+              color: colors.lightGray,
             }}
           >
             "We hope CardinalDorms empowers you to discover the best fit for your lifestyle and enhances your overall Stanford experience."
           </p>
-
-
         </div>
-        
       </div>
     </AuthProvider>
   );

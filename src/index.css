@@ -10,3 +10,14 @@ html, body {
   padding: 0;
   overflow-x: hidden;
 }
+
+:root {
+  --dark-bg: #181818;
+  --light-text: #ffffff;
+  --medium-gray: #b4b4b4;
+  --light-gray: #d9d9d9;
+  --orange-accent: #f4a261;
+  --heading-accent: #FF4500;
+  --link-hover: red;
+  --border-dark: #333;
+}

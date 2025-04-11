@@ -1,6 +1,6 @@
 .dorm-page {
   background-color: #1f1f1f;
-  color: white;
+  color: white;  /* Text of the reviews themselves */
   min-height: 100vh;
   display: flex;
   flex-direction: column;

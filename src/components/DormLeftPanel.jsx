@@ -55,7 +55,7 @@ function DormLeftPanel({ dorm }) {
     <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 0 20px', color: 'white' }}>
       <h1 style={{ fontSize: '30px', marginBottom: '20px' }}>{dorm.name}</h1>
 
-      <p style={{ fontSize: '16px', lineHeight: '1.6' }}>
+      <p style={{ fontSize: '16px', lineHeight: '1.6',       color: '#d9d9d9', }}>
         {dorm.dorm_gen_statement.replace(/\n/g, '\n')}{' '}
         <a
           href={sourceUrl}

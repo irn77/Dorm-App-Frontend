@@ -6,6 +6,9 @@ import AboutPage from './components/AboutPage';
 import NotFoundPage from './components/NotFoundPage';
 import DirectoryPage from './components/DirectoryPage';
 import ContactPage from './components/ContactPage';
+import Footer from './components/Footer';
+import './index.css'; // ✅ loads variables globally
+
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +21,8 @@ function App() {
         <Route path="/contact" element={<ContactPage />} /> {}
         <Route path="*" element={<NotFoundPage />} /> {}
       </Routes>
+      <Footer />
+
     </BrowserRouter>
   );
 }

@@ -49,7 +49,7 @@ function ReviewComponent({ dormId }) {
   if (error) return <p style={{ color: 'white' }}>Error: {error.message}</p>;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minWidth: '300px', paddingLeft: '22px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minWidth: '200px', paddingLeft: '22px' }}>
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', color: 'white' }}>
   <h2 style={{ fontSize: '28px', margin: 0, color: 'white' }}>
     Student Reviews (<span style={{ color: avgColor }}>{roundedAvg}</span>)

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { API_BASE_URL } from '../config';
+import colors from '../styles/colors'; // 🔥 import your color constants
 
 function NeighborhoodColumn({ neighborhoodName, showAllRatings }) {
   const [dorms, setDorms] = useState([]);
@@ -26,8 +27,8 @@ function NeighborhoodColumn({ neighborhoodName, showAllRatings }) {
     fetchDormsWithAvg();
   }, [neighborhoodName]);
 
-  if (loading) return <p style={{ color: 'white' }}>Loading...</p>;
-  if (error) return <p style={{ color: 'red' }}>Error: {error.message}</p>;
+  if (loading) return <p style={{ color: colors.white }}>Loading...</p>;
+  if (error) return <p style={{ color: colors.errorRed }}>Error: {error.message}</p>;
 
   const getAverageColor = (avg) => {
     if (avg === null || avg === 0) return 'gray';
@@ -45,13 +46,13 @@ function NeighborhoodColumn({ neighborhoodName, showAllRatings }) {
   };
 
   return (
-    <div style={{ marginBottom: '1rem', color: 'white' }}>
+    <div style={{ marginBottom: '1rem', color: colors.lightGray }}>
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {dorms.map((dorm) => (
           <li key={dorm.dorm_id} style={{ marginBottom: '0.5rem', textAlign: 'left' }}>
             <Link
               to={`/dorm/${dorm.dorm_id}`}
-              style={{ color: 'white', textDecoration: 'none' }}
+              style={{ color: colors.lightGray, textDecoration: 'none' }}
             >
               {dorm.name}
             </Link>

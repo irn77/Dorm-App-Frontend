@@ -1,13 +1,14 @@
 import React from 'react';
 import { AuthProvider } from './AuthContext';
 import Navbar from './Navbar';
-import { Mail } from 'lucide-react'; // uses lucide for clean icons
-import './ContactPage.css'; // optional custom styles
+import { Mail } from 'lucide-react';
+import './ContactPage.css';
+import colors from '../styles/colors'; // ✅ import shared color constants
 
 function ContactPage() {
   return (
     <AuthProvider>
-      <div style={{ backgroundColor: '#1f1f1f', color: '#fff', minHeight: '100vh' }}>
+      <div style={{ backgroundColor: colors.darkBg, color: colors.white, minHeight: '100vh' }}>
         <Navbar />
 
         <div className="contact-container">
@@ -15,11 +16,11 @@ function ContactPage() {
           <p className="contact-subtitle">We would love to connect!</p>
 
           <div className="email-card">
-        <Mail size={28} className="email-icon" />
-        <a href="mailto:cardinaldorms@gmail.com" className="email-link">
+            <Mail size={28} className="email-icon" />
+            <a href="mailto:cardinaldorms@gmail.com" className="email-link">
               cardinaldorms@gmail.com
             </a>
-        </div>
+          </div>
         </div>
       </div>
     </AuthProvider>

@@ -1,40 +1,49 @@
 import React from 'react';
 import { AuthProvider } from './AuthContext';
 import Navbar from './Navbar';
-import SearchBar from './SearchBar';
+import SearchBarRotate from './SearchBarRotate';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
-import SearchBarRotate from './SearchBarRotate';
-import DirectoryPage from './DirectoryPage';
+import colors from '../styles/colors'; // ✅ import your shared colors
 
 function HomePage() {
-const screenWidth = window.innerWidth;
-const inputWidth = screenWidth < 500 ? screenWidth - 40 : 450; // 20px margin on each side
-
   return (
     <AuthProvider>
-      <div className="homepage-container">
+      <div className="homepage-container" style={{ backgroundColor: colors.darkBg, color: colors.white }}>
         <Navbar />
 
         <div className="hero-section">
           {/* Left Text Area */}
           <div className="hero-left">
-            <h1>Welcome to <span className="highlight">CardinalDorms</span></h1>
-            <p>A dorm review system you can trust. Built by students, for students.</p>
+            <h1>
+              Welcome to <span className="highlight">CardinalDorms</span>
+            </h1>
+            <p style={{ color: colors.lightGray }}>
+              A dorm review system you can trust. Built by students, for students.
+            </p>
             <div className="hero-links">
-              <Link to="/about" className="hero-link">Learn more →</Link>
-              <Link to="/directory" className="hero-link">View directory →</Link>
+              <Link to="/about" className="hero-link">
+                Learn more →
+              </Link>
+              <Link to="/directory" className="hero-link">
+                View directory →
+              </Link>
             </div>
           </div>
 
           {/* Right Search Area */}
           <div className="hero-right">
-      <div className="search-wrapper">
-        <p className="search-label">Search Stanford's 73 dorms:</p>
-        <SearchBarRotate customStyles={{ width: `${inputWidth}%`, maxWidth: '450px', height: '60px' }} />
-      </div>
-    </div>
-
+            <div className="search-wrapper">
+              <p className="search-label">Search Stanford's 73 dorms:</p>
+              <SearchBarRotate
+                customStyles={{
+                  maxWidth: '450px',
+                  width: '100%',
+                  height: '60px',
+                }}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </AuthProvider>
@@ -42,6 +51,7 @@ const inputWidth = screenWidth < 500 ? screenWidth - 40 : 450; // 20px margin on
 }
 
 export default HomePage;
+
 
 /*
 import React, { useState } from 'react';

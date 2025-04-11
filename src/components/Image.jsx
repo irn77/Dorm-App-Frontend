@@ -14,6 +14,7 @@ function Image({ image }) {
 
   return (
     <div className="image-container">
+      <div className="image-wrapper">
       <Zoom>
         <img src={imageUrl} alt="Dorm Image" className="zoomable-image" />
       </Zoom>
@@ -26,7 +27,7 @@ function Image({ image }) {
           ))}
         </div>
       )}
-    </div>
+    </div></div>
   );
 }
 

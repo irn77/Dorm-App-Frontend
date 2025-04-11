@@ -134,6 +134,7 @@
   
   
 
+  /* Update for smaller screens */
   @media (max-width: 800px) {
     .hero-section {
       flex-direction: column;
@@ -143,22 +144,42 @@
       gap: 40px;
     }
   
-    .hero-left, .hero-right {
-      align-items: center;
-      text-align: center;
-      justify-content: center;
+    .hero-left,
+    .hero-right {
       max-width: 100%;
+      width: 100%;
     }
   
     .hero-left h1 {
-      font-size: 48px; /* Optional: slightly smaller for phones */
+      font-size: 42px;
+      text-align: center;
+    }
+  
+    .hero-left p {
+      font-size: 16px;
+      text-align: center; /* ✅ keep subtext left-aligned on mobile */
+      max-width: 500px;
+      margin: 0 auto 20px;
+    }
+  
+    .hero-links {
+      justify-content: center;
     }
   
     .search-wrapper {
       width: 100%;
-      max-width: 450px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  
+    .search-rotate-box {
+      width: 100% !important;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+  
+    .search-rotate-box input {
+      font-size: 20px;
     }
   }
   
-
-

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import './Navbar.css';
+import colors from '../styles/colors';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ function Navbar() {
     <nav className="navbar">
       {/* Left section: Logo and search (visible on larger screens) */}
       <div className="navbar-left">
-        <NavLink to="/" className="navbar-logo">
+      <NavLink to="/" className="navbar-logo" style={{ color: colors.white }}>
           CardinalDorms
         </NavLink>
 

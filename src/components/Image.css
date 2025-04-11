@@ -35,3 +35,10 @@
   }
 
   
+
+  .image-wrapper {
+    width: 100%;
+    max-width: 450px; /* Prevent images from getting too large */
+    box-sizing: border-box;
+  }
+  
