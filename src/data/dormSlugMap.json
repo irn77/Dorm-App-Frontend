@@ -1,0 +1,294 @@
+[
+  {
+    "id": 5,
+    "slug": "sally-ride"
+  },
+  {
+    "id": 50,
+    "slug": "pluto"
+  },
+  {
+    "id": 51,
+    "slug": "roth"
+  },
+  {
+    "id": 52,
+    "slug": "storey"
+  },
+  {
+    "id": 53,
+    "slug": "synergy"
+  },
+  {
+    "id": 8,
+    "slug": "crothers-hall"
+  },
+  {
+    "id": 10,
+    "slug": "adams"
+  },
+  {
+    "id": 11,
+    "slug": "east"
+  },
+  {
+    "id": 13,
+    "slug": "potter"
+  },
+  {
+    "id": 12,
+    "slug": "murray"
+  },
+  {
+    "id": 15,
+    "slug": "schiff"
+  },
+  {
+    "id": 16,
+    "slug": "suites"
+  },
+  {
+    "id": 34,
+    "slug": "trancos"
+  },
+  {
+    "id": 17,
+    "slug": "yost"
+  },
+  {
+    "id": 41,
+    "slug": "robert-moore-south"
+  },
+  {
+    "id": 18,
+    "slug": "flomo-east"
+  },
+  {
+    "id": 21,
+    "slug": "robert-moore-north"
+  },
+  {
+    "id": 22,
+    "slug": "meier-naranja"
+  },
+  {
+    "id": 35,
+    "slug": "castano"
+  },
+  {
+    "id": 42,
+    "slug": "columbae"
+  },
+  {
+    "id": 23,
+    "slug": "norcliffe-adelfa"
+  },
+  {
+    "id": 24,
+    "slug": "roble"
+  },
+  {
+    "id": 25,
+    "slug": "ujamaa"
+  },
+  {
+    "id": 26,
+    "slug": "west-lag"
+  },
+  {
+    "id": 28,
+    "slug": "cedro"
+  },
+  {
+    "id": 29,
+    "slug": "junipero"
+  },
+  {
+    "id": 30,
+    "slug": "okada"
+  },
+  {
+    "id": 31,
+    "slug": "otero"
+  },
+  {
+    "id": 32,
+    "slug": "rinconada"
+  },
+  {
+    "id": 33,
+    "slug": "soto"
+  },
+  {
+    "id": 36,
+    "slug": "duan"
+  },
+  {
+    "id": 37,
+    "slug": "kimball"
+  },
+  {
+    "id": 38,
+    "slug": "mirrielees"
+  },
+  {
+    "id": 39,
+    "slug": "lantana"
+  },
+  {
+    "id": 40,
+    "slug": "ng"
+  },
+  {
+    "id": 43,
+    "slug": "durand"
+  },
+  {
+    "id": 44,
+    "slug": "enchanted-broccoli-forest"
+  },
+  {
+    "id": 45,
+    "slug": "grove"
+  },
+  {
+    "id": 46,
+    "slug": "hammarskjold"
+  },
+  {
+    "id": 47,
+    "slug": "jerry"
+  },
+  {
+    "id": 48,
+    "slug": "kairos"
+  },
+  {
+    "id": 49,
+    "slug": "narnia"
+  },
+  {
+    "id": 54,
+    "slug": "terra"
+  },
+  {
+    "id": 55,
+    "slug": "xanadu"
+  },
+  {
+    "id": 56,
+    "slug": "zap"
+  },
+  {
+    "id": 57,
+    "slug": "alpha-kappa-delta-phi-chi-omega"
+  },
+  {
+    "id": 58,
+    "slug": "kappa-sigma"
+  },
+  {
+    "id": 59,
+    "slug": "sigma-phi-epsilon"
+  },
+  {
+    "id": 60,
+    "slug": "pi-beta-phi"
+  },
+  {
+    "id": 61,
+    "slug": "550-lasuen"
+  },
+  {
+    "id": 62,
+    "slug": "sigma-nu"
+  },
+  {
+    "id": 63,
+    "slug": "576-alvarado"
+  },
+  {
+    "id": 64,
+    "slug": "kappa-alpha-theta"
+  },
+  {
+    "id": 65,
+    "slug": "phi-kappa-psi"
+  },
+  {
+    "id": 66,
+    "slug": "toussaint-louverture"
+  },
+  {
+    "id": 67,
+    "slug": "the-warehaus"
+  },
+  {
+    "id": 68,
+    "slug": "neptune"
+  },
+  {
+    "id": 69,
+    "slug": "kappa-alpha"
+  },
+  {
+    "id": 70,
+    "slug": "alpha-phi-kappa-kappa-gamma"
+  },
+  {
+    "id": 71,
+    "slug": "680-lomita"
+  },
+  {
+    "id": 72,
+    "slug": "delta-delta-delta"
+  },
+  {
+    "id": 73,
+    "slug": "mars"
+  },
+  {
+    "id": 3,
+    "slug": "donner"
+  },
+  {
+    "id": 2,
+    "slug": "casa-zapata"
+  },
+  {
+    "id": 6,
+    "slug": "twain"
+  },
+  {
+    "id": 14,
+    "slug": "robinson"
+  },
+  {
+    "id": 4,
+    "slug": "larkin"
+  },
+  {
+    "id": 19,
+    "slug": "flomo-west"
+  },
+  {
+    "id": 20,
+    "slug": "muwekma-tah-ruk"
+  },
+  {
+    "id": 7,
+    "slug": "branner"
+  },
+  {
+    "id": 27,
+    "slug": "arroyo"
+  },
+  {
+    "id": 9,
+    "slug": "toyon"
+  },
+  {
+    "id": 1,
+    "slug": "burbank"
+  }
+]

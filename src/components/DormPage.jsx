@@ -7,10 +7,15 @@ import { API_BASE_URL } from '../config';
 import NotFoundPage from './NotFoundPage';
 import Navbar from './Navbar';
 import DormLeftPanel from './DormLeftPanel';
+import slugMap from '../data/dormSlugMap.json'; // 👈 new import
+
 import './DormPage.css';
 
 function DormPage() {
-  const { dormId } = useParams();
+  const { slug } = useParams(); // 👈 use slug from URL
+  const dormEntry = slugMap.find(entry => entry.slug === slug);
+  const dormId = dormEntry ? dormEntry.id : null;
+
   const [dorm, setDorm] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -24,6 +29,12 @@ function DormPage() {
   };
 
   useEffect(() => {
+    if (!dormId) {
+      setError(true);
+      setLoading(false);
+      return;
+    }
+
     const fetchDorm = async () => {
       setLoading(true);
       try {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { API_BASE_URL } from '../config';
 import colors from '../styles/colors'; // 🔥 import your color constants
+import slugMap from '../data/dormSlugMap.json'; // adjust path if needed
 
 function NeighborhoodColumn({ neighborhoodName, showAllRatings }) {
   const [dorms, setDorms] = useState([]);
@@ -45,13 +46,17 @@ function NeighborhoodColumn({ neighborhoodName, showAllRatings }) {
     }
   };
 
+  const getSlug = (id) => {
+    const match = slugMap.find(entry => entry.id === id);
+    return match ? match.slug : 'not-found';
+  };
+  
   return (
     <div style={{ marginBottom: '1rem', color: colors.lightGray }}>
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {dorms.map((dorm) => (
           <li key={dorm.dorm_id} style={{ marginBottom: '0.5rem', textAlign: 'left' }}>
-            <Link
-              to={`/dorm/${dorm.dorm_id}`}
+            <Link to={`/${getSlug(dorm.dorm_id)}`}
               style={{ color: colors.lightGray, textDecoration: 'none' }}
             >
               {dorm.name}

@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../config';
 import './SearchBar.css';
+import slugMap from '../data/dormSlugMap.json';
 
 function SearchBar() {
   const [query, setQuery] = useState('');
@@ -11,6 +12,11 @@ function SearchBar() {
   const [showDropdown, setShowDropdown] = useState(false);
   const wrapperRef = useRef(null);
   const navigate = useNavigate();
+
+  const getSlug = (id) => {
+  const entry = slugMap.find((d) => d.id === id);
+  return entry ? entry.slug : null;
+  };
 
   useEffect(() => {
     const fetchOptions = async () => {
@@ -53,7 +59,10 @@ function SearchBar() {
         .then((dorms) => {
           const foundDorm = dorms.find((d) => d.name.toLowerCase() === option.label.toLowerCase());
           if (foundDorm) {
-            navigate(`/dorm/${foundDorm.dorm_id}`);
+            const slug = getSlug(foundDorm.dorm_id);
+              if (slug) {
+                navigate(`/${slug}`);
+              }
           }
         });
     }
