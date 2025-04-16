@@ -1,17 +1,19 @@
 // Review.jsx
 import React from 'react';
+import colors from '../styles/colors';
 
 function Review({ review, showDetails }) {
   return (
     <div
     style={{
-      border: '1px solid white',
+      border: `1px solid ${colors.reviewBorderBoxColor}`,       // THIS CONTROLS THE BORDER
       padding: '10px',
       margin: '5px 0',
       borderRadius: '5px',
       textAlign: 'left',
       width: '100%',           // make it fill the column
       boxSizing: 'border-box', // makes padding play nicely
+      color: colors.dormPageText
     }}
     >
       <div style={{ display: 'flex', alignItems: 'flex-start' }}>

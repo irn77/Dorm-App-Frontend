@@ -1,46 +1,46 @@
 // ImageFilter.jsx
 import React from 'react';
-import './ImageFilter.css'; // Create ImageFilter.css for styling
+import './ImageFilter.css';
+import colors from '../styles/colors';
 
 function ImageFilter({ selectedFilters, onFilterChange }) {
+  const filters = [
+    { label: 'Exterior', value: 'exterior' },
+    { label: 'Common Space', value: 'common-space' },
+    { label: 'Dorm Room', value: 'dorm-room' },
+    { label: 'Other', value: 'other' },
+  ];
+
+  const isAllSelected = selectedFilters.length === 0;
+
   return (
     <div className="filter-options">
-      <label>
-        <input
-          type="checkbox"
-          value="exterior"
-          checked={selectedFilters.includes("exterior")}
-          onChange={onFilterChange}
-        />
-        Exterior
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          value="common-space"
-          checked={selectedFilters.includes("common-space")}
-          onChange={onFilterChange}
-        />
-        Common Space
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          value="dorm-room"
-          checked={selectedFilters.includes("dorm-room")}
-          onChange={onFilterChange}
-        />
-        Dorm Room
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          value="other"
-          checked={selectedFilters.includes("other")}
-          onChange={onFilterChange}
-        />
-        Other
-      </label>
+      {/* ALL button */}
+      <button
+        type="button"
+        className={`filter-button all-button ${isAllSelected ? 'selected' : ''}`}
+        onClick={() => onFilterChange('all')}
+      >
+        All
+      </button>
+
+      {/* Divider */}
+      <span className="filter-divider">|</span>
+
+      {/* Other filter buttons */}
+      {filters.map(({ label, value }) => {
+  const isSelected = selectedFilters.includes(value);
+  return (
+    <button
+      key={value}
+      type="button"
+      className={`filter-button ${value} ${isSelected ? 'selected' : ''}`}
+      onClick={() => onFilterChange(value)}
+    >
+      {label}
+    </button>
+  );
+})}
     </div>
   );
 }

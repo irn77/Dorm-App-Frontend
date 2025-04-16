@@ -4,6 +4,7 @@ import ReviewSearch from './ReviewSearch';
 import ShowDetailsIcon from './ShowDetailsIcon';
 import AddReview from './AddReview';
 import { API_BASE_URL } from '../config';
+import colors from '../styles/colors';
 import './ReviewComponent.css';
 
 function ReviewComponent({ dormId }) {
@@ -16,7 +17,6 @@ function ReviewComponent({ dormId }) {
   const midpoint = Math.ceil(filteredReviews.length / 2);
   const leftReviews = filteredReviews.slice(0, midpoint);
   const rightReviews = filteredReviews.slice(midpoint);
-
 
   useEffect(() => {
     fetchReviews();
@@ -45,46 +45,44 @@ function ReviewComponent({ dormId }) {
   const roundedAvg = avg !== null && avg !== 0 ? parseFloat(avg).toFixed(2) : 'N/A';
   const avgColor = getAverageColor(avg);
 
-  if (loading) return <p style={{ color: 'white' }}>Loading...</p>;
-  if (error) return <p style={{ color: 'white' }}>Error: {error.message}</p>;
+  if (loading) return <p style={{ color: colors.white }}>Loading...</p>;
+  if (error) return <p style={{ color: colors.white }}>Error: {error.message}</p>;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minWidth: '200px', paddingLeft: '22px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', color: 'white' }}>
-  <h2 style={{ fontSize: '28px', margin: 0, color: 'white' }}>
-    Student Reviews (<span style={{ color: avgColor }}>{roundedAvg}</span>)
-  </h2>
-  <div style={{ display: 'flex', alignItems: 'center', marginLeft: '15px' }}>
-  {filteredReviews.length > 0 && (
-  <ShowDetailsIcon showDetails={showDetails} setShowDetails={setShowDetails} />
-)}
-    <div style={{ width: '10px' }} />
-    <AddReview dormId={dormId} onReviewAdded={refreshReviews} />
-  </div>
-</div>
+      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', color: colors.white }}>
+        <h2 style={{ fontSize: '28px', margin: 0, color: colors.white }}>
+          Student Reviews (<span style={{ color: avgColor }}>{roundedAvg}</span>)
+        </h2>
+        <div style={{ display: 'flex', alignItems: 'center', marginLeft: '15px' }}>
+          {filteredReviews.length > 0 && (
+            <ShowDetailsIcon showDetails={showDetails} setShowDetails={setShowDetails} />
+          )}
+          <div style={{ width: '10px' }} />
+          <AddReview dormId={dormId} onReviewAdded={refreshReviews} />
+        </div>
+      </div>
 
-      {/* Search Input */}
       <div style={{ maxWidth: '500px', marginBottom: '20px' }}>
         <ReviewSearch reviews={reviews} setFilteredReviews={setFilteredReviews} />
       </div>
 
-      {/* Reviews List */}
       {filteredReviews.length === 0 ? (
-  <p style={{ color: 'white', marginTop: '10px', fontSize: '20px' }}>No Reviews. Add the first!</p>
-    ) : (
-      <div className="review-columns">
-        <ReviewColumn reviews={leftReviews} showDetails={showDetails} />
-        <ReviewColumn reviews={rightReviews} showDetails={showDetails} />
-      </div>
-    )}
-
-
+        <p style={{ color: colors.white, marginTop: '10px', fontSize: '20px' }}>
+          No Reviews. Add the first!
+        </p>
+      ) : (
+        <div className="review-columns">
+          <ReviewColumn reviews={leftReviews} showDetails={showDetails} />
+          <ReviewColumn reviews={rightReviews} showDetails={showDetails} />
+        </div>
+      )}
     </div>
   );
 }
 
 function getAverageColor(avg) {
-  if (avg === null || avg === 0) return 'gray';
+  if (avg === null || avg === 0) return colors.mediumGray;
   const hue = ((avg - 1) / 4) * 120;
   return `hsl(${hue}, 100%, 50%)`;
 }

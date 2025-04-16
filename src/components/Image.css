@@ -1,4 +1,3 @@
-/* Image.css */
 .image-container {
   display: flex;
   flex-direction: column;
@@ -19,26 +18,54 @@
   cursor: pointer;
 }
 
-  .image-tags {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin-top: 5px;
-  }
-  
-  .tag {
-    background-color: #f0f0f0;
-    padding: 3px 6px;
-    border-radius: 5px;
-    font-size: 0.8em;
-    color: black; /* Add this line to set text color to black */
-  }
+.image-wrapper {
+  width: 100%;
+  max-width: 450px;
+  box-sizing: border-box;
+}
 
-  
+.image-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
 
-  .image-wrapper {
-    width: 100%;
-    max-width: 450px; /* Prevent images from getting too large */
-    box-sizing: border-box;
-  }
-  
+.tag {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  color: var(--lightGray);
+  background-color: var(--darkBg);
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  gap: 6px;
+  white-space: nowrap;
+}
+
+/* Colored dots */
+.tag::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.tag.exterior::before {
+  background-color: #2ecc71; /* green */
+}
+
+.tag.common-space::before {
+  background-color: #e74c3c; /* red */
+}
+
+.tag.dorm-room::before {
+  background-color: #9b59b6; /* purple */
+}
+
+.tag.other::before {
+  background-color: #f4a261; /* orange */
+}

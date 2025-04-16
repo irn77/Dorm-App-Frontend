@@ -9,5 +9,7 @@ const colors = {
     border: '#333',
     muted: '#888',
     deepBg: '#1a1a1a',
+    dormPageText: '#d9d9d9',
+    reviewBorderBoxColor: '#b4b4b4',
   };
   export default colors;

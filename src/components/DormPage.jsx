@@ -7,12 +7,13 @@ import { API_BASE_URL } from '../config';
 import NotFoundPage from './NotFoundPage';
 import Navbar from './Navbar';
 import DormLeftPanel from './DormLeftPanel';
-import slugMap from '../data/dormSlugMap.json'; // 👈 new import
+import slugMap from '../data/dormSlugMap.json';
 
 import './DormPage.css';
 
 function DormPage() {
-  const { slug } = useParams(); // 👈 use slug from URL
+  const { slug: rawSlug } = useParams();
+const slug = rawSlug.toLowerCase();
   const dormEntry = slugMap.find(entry => entry.slug === slug);
   const dormId = dormEntry ? dormEntry.id : null;
 
@@ -62,34 +63,41 @@ function DormPage() {
         <Navbar />
 
         <div className="dorm-content-container">
-          {/* Left Panel */}
+          {/* Left panel */}
           <div className="dorm-left-panel">
             <DormLeftPanel dorm={dorm} />
           </div>
 
-          {/* Right Content */}
+          {/* Right panel */}
           <div className="dorm-right-panel">
+            {/* Toggle buttons */}
             <div className="dorm-toggle">
-              <span
-                onClick={() => setActiveTab(activeTab === 'reviews' ? 'images' : 'reviews')}
+              <button
+                className={`filter-button ${activeTab === 'reviews' ? 'selected reviews' : 'inactive'}`}
+                onClick={() => setActiveTab('reviews')}
               >
-                {activeTab === 'reviews' ? 'View images' : 'View reviews'}
-              </span>
+                Reviews
+              </button>
+              <button
+                className={`filter-button ${activeTab === 'images' ? 'selected images' : 'inactive'}`}
+                onClick={() => setActiveTab('images')}
+              >
+                Images
+              </button>
             </div>
 
-            {activeTab === 'images' ? (
-              <div style={{ marginTop: '20px' }}>
+            {/* Main content (wrapped) */}
+            <div className="dorm-main-content">
+              {activeTab === 'images' ? (
                 <ImageComponent
                   dormId={dormId}
                   images={dorm.image_urls || []}
                   onImageUploaded={handleImageUploaded}
                 />
-              </div>
-            ) : (
-              <div style={{ marginTop: '20px' }}>
+              ) : (
                 <ReviewComponent dormId={dormId} />
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>

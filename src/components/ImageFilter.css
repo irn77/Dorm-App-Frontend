@@ -1,19 +1,73 @@
-/* ImageFilter.css */
+@import '/src/styles/colors.css';
+
 .filter-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: -5px; /* Add some spacing below the filters */
-  }
-  
-  .filter-options label {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    font-weight: normal;
-    font-size: 0.9em; /* Adjust font size if needed */
-  }
-  
-  .filter-options input[type="checkbox"] {
-    margin-right: 5px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filter-button {
+  background-color: #2e2e2e;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.filter-button:hover {
+  background-color: #444;
+  transform: scale(1.03);
+}
+
+.filter-button.selected {
+  background-color: #2ecc71; /* You can also import your green if needed */
+  color: black;
+}
+
+/* "All" button specific tweaks if needed */
+.all-button {
+  background-color: #444;
+}
+
+.all-button.selected {
+  background-color: #f4a261; /* orange from colors.js */
+  color: black;
+}
+
+/* Divider */
+.filter-divider {
+  color: #888;
+  font-weight: bold;
+  padding: 0 8px;
+  font-size: 1.2em;
+  opacity: 0.6;
+}
+
+
+/* Filter button color coding when selected */
+.filter-button.selected.exterior {
+  background-color: #2ecc71; /* green */
+  color: black;
+}
+
+.filter-button.selected.common-space {
+  background-color: #e74c3c; /* red */
+  color: white;
+}
+
+.filter-button.selected.dorm-room {
+  background-color: #9b59b6; /* purple */
+  color: white;
+}
+
+.filter-button.selected.other {
+  background-color: var(--orange); /* consistent orange */
+  color: black;
+}

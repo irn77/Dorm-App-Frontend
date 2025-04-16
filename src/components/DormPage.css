@@ -89,6 +89,11 @@
   width: 100%;
 }
 
+@media (max-width: 1000px){
+  .dorm-main-content {
+    margin-top: 40px;
+  }
+}
 /* Ensure the left and right panels stack neatly and fit screen */
 @media (max-width: 768px) {
   .dorm-left-panel,
@@ -109,4 +114,130 @@
   .review-columns {
     grid-template-columns: 1fr;
   }
+  .dorm-toggle {
+    top: 8px;
+    right: 16px;
+    padding-top: -0px;
+    position: relative;
+  }
 }
+
+
+
+
+.toggle-group {
+  display: flex;
+  gap: 8px;
+}
+
+.toggle-button {
+  padding: 6px 16px;
+  background-color: var(--deepBg);
+  color: var(--lightGray);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.toggle-button:hover {
+  background-color: var(--mediumGray);
+  color: black;
+  transform: scale(1.04);
+}
+
+.toggle-button.active {
+  background-color: var(--orange);
+  color: black;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+.toggle-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.toggle-button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+}
+
+.toggle-button.active {
+  background-color: var(--orange);
+  color: black;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.toggle-button.inactive {
+  background-color: var(--lightGray);
+  color: black;
+}
+
+.toggle-button.inactive:hover {
+  background-color: var(--mediumGray);
+  color: black;
+  transform: scale(1.03);
+}
+
+
+/* Toggle button section */
+.dorm-toggle {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  z-index: 10;
+}
+
+/* Shared style with filter-button look */
+.filter-button {
+  background-color: #2e2e2e;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover style for inactive */
+.filter-button.inactive:hover {
+  background-color: #444;
+  transform: scale(1.03);
+}
+
+/* Active toggle styles */
+.filter-button.selected {
+  background-color: var(--orange); /* or pick color per tab below */
+  color: black;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Optional: distinct background colors per tab */
+.filter-button.selected.reviews {
+  background-color: var(--orange);
+}
+
+.filter-button.selected.images {
+  background-color: #f4a261; /* success green */
+}
+
+

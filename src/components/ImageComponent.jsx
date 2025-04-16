@@ -25,16 +25,18 @@ function ImageComponent({ dormId, images, onImageUploaded }) {
     setTimeout(() => setShowSuccessModal(false), 7000);
   };
 
-  const handleFilterChange = (e) => {
-    const filterValue = e.target.value;
-    if (e.target.checked) {
-      setSelectedFilters((prevFilters) => [...prevFilters, filterValue]);
+  const handleFilterChange = (value) => {
+    if (value === 'all') {
+      setSelectedFilters([]); // Reset all filters
     } else {
       setSelectedFilters((prevFilters) =>
-        prevFilters.filter((filter) => filter !== filterValue)
+        prevFilters.includes(value)
+          ? prevFilters.filter((f) => f !== value)
+          : [...prevFilters, value]
       );
     }
   };
+  
 
   const splitIntoColumns = (imageList) => {
     const cols = [[], [], []];
