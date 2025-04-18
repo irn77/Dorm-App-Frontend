@@ -83,7 +83,7 @@ function AboutPage() {
           </p>
 
           <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8', color: colors.lightGray }}>
-            <strong>Why:</strong> Choosing dorms is difficult (for all of us). It only makes sense for there to be a system that helps us make more informed decisions.
+            <strong>Why:</strong> Choosing dorms is difficult. It only makes sense for there to be a system that helps us make more informed decisions.
           </p>
 
           <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8', color: colors.lightGray }}>
@@ -120,7 +120,6 @@ function AboutPage() {
               color: colors.lightGray,
             }}
           >
-            "We hope CardinalDorms empowers you to discover the best fit for your lifestyle and enhances your overall Stanford experience."
           </p>
         </div>
       </div>
