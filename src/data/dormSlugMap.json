@@ -20,10 +20,6 @@
     "slug": "synergy"
   },
   {
-    "id": 8,
-    "slug": "crothers-hall"
-  },
-  {
     "id": 10,
     "slug": "adams"
   },
@@ -78,10 +74,6 @@
   {
     "id": 42,
     "slug": "columbae"
-  },
-  {
-    "id": 23,
-    "slug": "norcliffe-adelfa"
   },
   {
     "id": 24,
@@ -290,5 +282,29 @@
   {
     "id": 1,
     "slug": "burbank"
+  },
+  {
+    "id": 75,
+    "slug": "norcliffe"
+  },
+  {
+    "id": 76,
+    "slug": "adelfa"
+  }, 
+  {
+    "id": 77,
+    "slug": "crothers"
+  },
+  {
+    "id": 78,
+    "slug": "cromem"
+  }, {
+    "id": 79,
+    "slug": "meier"
+  },
+  {
+    "id": 80,
+    "slug": "naranja"
   }
+  
 ]

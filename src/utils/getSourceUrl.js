@@ -14,12 +14,16 @@ export const getSourceUrl = (dorm) => {
         url: "https://resed.stanford.edu/neighborhoods/olive-neighborhood/olive-houses/flomo-west-gavilan-loro-mirlo-and-paloma",
       },
       {
-        match: n => n === "Meier/Naranja",
-        url: "https://resed.stanford.edu/neighborhoods/redwood-neighborhood/redwood-houses/meiernaranja",
+        match: n => n === "Norcliffe" || n === "Adelfa",
+        url: "https://resed.stanford.edu/neighborhoods/redwood-neighborhood/redwood-houses/norcliffeadelfa",
       },
       {
-        match: n => n === "Norcliffe/Adelfa",
-        url: "https://resed.stanford.edu/neighborhoods/redwood-neighborhood/redwood-houses/norcliffeadelfa",
+        match: n => n === "Crothers" || n === "Crothers Memorial",
+        url: "https://resed.stanford.edu/neighborhoods/ginkgo-neighborhood/ginkgo-houses/crothers-hall-crothers-and-crothers-memorial",
+      },
+      {
+        match: n => n === "Meier" || n === "Naranja",
+        url: "https://resed.stanford.edu/neighborhoods/redwood-neighborhood/redwood-houses/meiernaranja",
       },
       {
         match: n => n === "Castaño",
