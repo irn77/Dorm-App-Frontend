@@ -17,6 +17,7 @@ function NeighborhoodColumn({ neighborhoodName, showAllRatings }) {
           throw new Error('Failed to fetch dorms with average ratings');
         }
         const data = await response.json();
+        console.log(`Dorms for ${neighborhoodName}:`, data); // <--- Add this line
         setDorms(data);
         setLoading(false);
       } catch (err) {

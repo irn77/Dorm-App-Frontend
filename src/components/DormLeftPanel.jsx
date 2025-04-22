@@ -26,8 +26,9 @@ const groupedDorms = {
 function DormLeftPanel({ dorm }) {
   const [showModal, setShowModal] = useState(false);
   const [selectedRfAbout, setSelectedRfAbout] = useState('');
+  const [showFullText, setShowFullText] = useState(false);
   const dormData = useDormCSV();
-
+  const textCutOff = 400;
   if (!dorm) return null;
 
   const grouped = groupedDorms[dorm.name];
@@ -51,12 +52,24 @@ function DormLeftPanel({ dorm }) {
     (entry) => entry.House?.toLowerCase().trim() === subDorms[0].toLowerCase().trim()
   );
 
+  const cleanedGenStatement = (dorm.dorm_gen_statement || '').replaceAll('\\n', ' ');
+  const shortText = cleanedGenStatement.slice(0, textCutOff);
+  const isLong = cleanedGenStatement.length > textCutOff;
+
   return (
     <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 0 20px', color: 'white' }}>
       <h1 style={{ fontSize: '30px', marginBottom: '20px' }}>{dorm.name}</h1>
 
-      <p style={{ fontSize: '16px', lineHeight: '1.6',       color: '#d9d9d9', }}>
-        {dorm.dorm_gen_statement.replace(/\n/g, '\n')}{' '}
+      <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#d9d9d9' }}>
+        {showFullText || !isLong ? cleanedGenStatement : shortText + '...'}
+        {isLong && (
+          <span
+            onClick={() => setShowFullText(!showFullText)}
+            style={{ color: '#f4a261', cursor: 'pointer', marginLeft: '6px' }}
+          >
+            {showFullText ? 'Show less' : 'Show more'}
+          </span>
+        )}
         <a
           href={sourceUrl}
           target="_blank"
@@ -65,7 +78,7 @@ function DormLeftPanel({ dorm }) {
             color: '#f4a261',
             display: 'inline-flex',
             verticalAlign: 'middle',
-            marginLeft: '4px',
+            marginLeft: '6px',
           }}
         >
           <SquareArrowOutUpRight size={16} />
