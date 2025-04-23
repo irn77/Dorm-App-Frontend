@@ -7,7 +7,7 @@ import { API_BASE_URL } from '../config';
 import colors from '../styles/colors';
 import './ReviewComponent.css';
 
-const MINI_SCREEN_WIDTH = 200; // Define your mini screen breakpoint
+const MINI_SCREEN_WIDTH = 600; // Define your mini screen breakpoint
 
 function ReviewComponent({ dormId }) {
   const [reviews, setReviews] = useState([]);
