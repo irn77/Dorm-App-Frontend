@@ -1,23 +1,23 @@
 /* ImageComponent.css */
 .image-component-container {
   position: relative;
-  text-align: center; /* Center the heading */
+  text-align: left;
+  font-size: 20px;
 }
 
 .image-header-controls {
   display: flex;
-  justify-content: center; /* Center the filter options */
-  align-items: center; /* Vertically align the filter options and button */
-  gap: 10px; /* Spacing between filter options and button */
-  margin-bottom: 10px; /* Spacing below the controls */
+  justify-content: flex-start; /* Align controls to the left */
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .filter-options {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: flex-start; /* <-- now left aligned */
-
+  justify-content: flex-start;
 }
 
 .filter-options label {
@@ -35,23 +35,22 @@
 .add-image-button {
   background-color: var(--successGreen); /* From your colors.css */
   color: black;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   border: none;
-  border-radius: 50%; /* perfect circle */
-  width: 44px;
-  height: 44px;
+  border-radius: 8px; /* More rectangular */
+  padding: 8px 16px; /* Adjust padding for size */
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-flex; /* Use inline-flex to align items in a row */
+  align-items: center; /* Vertically align items */
+  gap: 8px; /* Space between the icon and text */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 .add-image-button:hover {
   background-color: #27ae60; /* a bit deeper green */
-  transform: scale(1.08);
+  transform: scale(1.05); /* Slightly less scaling for a rectangle */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -60,6 +59,9 @@
   box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.4);
 }
 
+.add-image-button .plus-icon {
+  font-size: 20px; /* Adjust plus icon size */
+}
 
 .image-upload-modal {
   position: fixed;
@@ -71,6 +73,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 30; /* Higher z-index to be on top */
 }
 
 .image-upload-modal .modal-content {
@@ -80,6 +83,7 @@
   width: 50%;
   max-width: 500px;
   position: relative;
+  z-index: 31; /* Ensure content within modal is also above */
 }
 
 .image-upload-modal .close {
@@ -88,6 +92,7 @@
   right: 10px;
   font-size: 1.5em;
   cursor: pointer;
+  z-index: 32; /* Even higher for the close button */
 }
 
 .error-bar {
@@ -103,7 +108,6 @@
   font-weight: bold;
   z-index: 9999;
 }
-
 
 .success-modal {
   position: fixed;
@@ -131,11 +135,6 @@
   margin: 0;
 }
 
-.image-component-container {
-  text-align: left;
-  font-size: 20px;
-}
-
 .image-top-header {
   display: flex;
   align-items: center;
@@ -146,25 +145,6 @@
 .image-filter-section {
   margin-bottom: 20px;
 }
-
-.filter-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.filter-options label {
-  font-size: 1rem;
-  font-weight: normal;
-}
-
-.filter-options input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  margin-right: 6px;
-  cursor: pointer;
-}
-
 
 .image-grid {
   display: grid;
@@ -186,9 +166,3 @@
     grid-template-columns: 1fr;
   }
 }
-
-
-
-
-
-

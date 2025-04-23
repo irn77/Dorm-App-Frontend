@@ -34,7 +34,14 @@ function ImageComponent({ dormId, images, onImageUploaded }) {
   }, []);
 
   // Modal controls
-  const handleAddImageClick = () => setShowUpload(true);
+  const handleAddImageClick = () => {
+    // if (!isLoggedIn) {
+    //   setErrorMessage('You must be logged in to add images.');
+    //   setTimeout(() => setErrorMessage(''), 3000);
+    // } else {
+      setShowUpload(true);
+    // }
+  };
   const handleCloseModal = () => {
     setShowUpload(false);
     setErrorMessage('');
@@ -43,6 +50,9 @@ function ImageComponent({ dormId, images, onImageUploaded }) {
     setShowSuccessModal(true);
     setShowUpload(false);
     setTimeout(() => setShowSuccessModal(false), 7000);
+    if (onImageUploaded) {
+      onImageUploaded(); // Notify parent component
+    }
   };
 
   // Filter checkbox logic
@@ -85,7 +95,9 @@ function ImageComponent({ dormId, images, onImageUploaded }) {
       {/* Header */}
       <div className="image-top-header">
         <h2 style={{ margin: 0, color: 'white' }}>Dorm Images</h2>
-        <button className="add-image-button" onClick={handleAddImageClick}>+</button>
+        <button className="add-image-button" onClick={handleAddImageClick}>
+          <span className="plus-icon">+</span> Add Image
+        </button>
       </div>
 
       {/* Filters */}
@@ -117,10 +129,7 @@ function ImageComponent({ dormId, images, onImageUploaded }) {
             <h3 style={{ color: 'black' }}>Upload Image</h3>
             <ImageUpload
               dormId={dormId}
-              onImageUploaded={() => {
-                onImageUploaded();
-                handleImageUploadSuccess();
-              }}
+              onImageUploaded={handleImageUploadSuccess}
               onClose={handleCloseModal}
             />
           </div>

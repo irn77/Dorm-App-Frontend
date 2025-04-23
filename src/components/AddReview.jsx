@@ -48,21 +48,11 @@ function AddReview({ dormId, onReviewAdded }) {
       {errorMessage && <div className="error-bar">{errorMessage}</div>}
 
       <button
-        className="add-review-button"
-        onClick={() => {
-          if (!isLoggedIn) {
-            setShowModal(true);
-            
-            //setErrorMessage('You must sign in to add a review');
-            //setTimeout(() => setErrorMessage(''), 3000);
-          } else {
-            
-            setShowModal(true);
-          }
-        }}
-      >
-        +
-      </button>
+  className="add-review-button"
+  onClick={() => setShowModal(true)}
+>
+  <span className="plus-icon">+</span> Add Review
+</button>
 
       {showModal && (
         <div className="modal5">

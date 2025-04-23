@@ -68,6 +68,7 @@
   .dorm-toggle {
     top: 10px;
     right: 20px;
+    z-index: 1;
   }
 }
 
@@ -89,7 +90,9 @@
   width: 100%;
 }
 
-@media (max-width: 1000px){
+/* this constrols moving buttons upwards */
+
+@media (max-width: 1100px){ 
   .dorm-main-content {
     margin-top: 40px;
   }
@@ -200,7 +203,7 @@
   position: absolute;
   top: 20px;
   right: 40px;
-  z-index: 0;
+  z-index: 10;
 }
 
 /* Shared style with filter-button look */
