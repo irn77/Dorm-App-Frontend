@@ -1,54 +1,57 @@
-// Review.jsx
 import React from 'react';
 import colors from '../styles/colors';
 
 function Review({ review, showDetails }) {
   return (
     <div
-    style={{
-      border: `1px solid ${colors.reviewBorderBoxColor}`,       // THIS CONTROLS THE BORDER
-      padding: '10px',
-      margin: '5px 0',
-      borderRadius: '10px',
-      textAlign: 'left',
-      width: '100%',           // make it fill the column
-      boxSizing: 'border-box', // makes padding play nicely
-      color: colors.dormPageText
-    }}
+      style={{
+        border: `1px solid ${colors.reviewBorderBoxColor}`,
+        padding: '10px',
+        margin: '5px 0',
+        borderRadius: '10px',
+        textAlign: 'left',
+        width: '100%',
+        boxSizing: 'border-box',
+        color: colors.dormPageText,
+      }}
     >
-      <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-        <p style={{ wordBreak: 'break-word', marginRight: '5px', flex: 1 }}>
-          {review.text}
-        </p>
-        {showDetails && (
+      {/* Conditionally show the rating/date at the top */}
+      {!showDetails && (
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            fontSize: '0.9rem',
+            color: '#ccc',
+            marginBottom: '8px',
+            gap: '8px',
+          }}
+        >
           <div
             style={{
-              display: 'inline-flex',
+              borderRadius: '50%',
+              border: '1px solid white',
+              color: 'white',
+              width: '20px',
+              height: '20px',
+              display: 'flex',
+              justifyContent: 'center',
               alignItems: 'center',
-              flexShrink: 0,
-              marginLeft: '5px',
+              fontSize: '0.8rem',
             }}
           >
-            <div
-              style={{
-                borderRadius: '50%',
-                border: '1px solid white',
-                color: 'white',
-                width: '20px',
-                height: '20px',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              {review.rating}
-            </div>
-            <span style={{ marginLeft: '5px' }}>
-              ({review.date.slice(5, 7)}/{review.date.slice(2, 4)})
-            </span>
+            {review.rating}
           </div>
-        )}
-      </div>
+          <span>
+            {review.date.slice(5, 7)}/{review.date.slice(2, 4)}
+          </span>
+        </div>
+      )}
+
+      {/* Review text */}
+      <p style={{ wordBreak: 'break-word' }}>
+        {review.text}
+      </p>
     </div>
   );
 }

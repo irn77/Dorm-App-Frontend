@@ -31,6 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
   }
   
   .ranked-rank {
@@ -68,5 +69,20 @@
   .review-count {
     font-size: 0.9rem;
     color: #aaa;
+  }
+  
+  @media (max-width: 480px) {
+    .ranked-rank {
+      font-size: 1.1rem;
+      padding: 2px 8px;
+    }
+  
+    .ranked-name {
+      font-size: 1rem;
+    }
+  
+    .star {
+      font-size: 1rem;
+    }
   }
   
