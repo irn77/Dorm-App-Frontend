@@ -34,7 +34,7 @@ function HomePage() {
           {/* Right Search Area */}
           <div className="hero-right">
             <div className="search-wrapper">
-              <p className="search-label">Search Stanford's 73 dorms:</p>
+              <p className="search-label">Search Stanford's 75+ dorms:</p>
               <SearchBarRotate
                 customStyles={{
                   maxWidth: '450px',
