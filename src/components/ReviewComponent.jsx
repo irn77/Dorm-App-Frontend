@@ -7,6 +7,8 @@ import { API_BASE_URL } from '../config';
 import colors from '../styles/colors';
 import './ReviewComponent.css';
 
+const MINI_SCREEN_WIDTH = 200; // Define your mini screen breakpoint
+
 function ReviewComponent({ dormId }) {
   const [reviews, setReviews] = useState([]);
   const [filteredReviews, setFilteredReviews] = useState([]);
@@ -14,12 +16,17 @@ function ReviewComponent({ dormId }) {
   const [error, setError] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
   const [avg, setAvg] = useState(0);
-  const midpoint = Math.ceil(filteredReviews.length / 2);
-  const leftReviews = filteredReviews.slice(0, midpoint);
-  const rightReviews = filteredReviews.slice(midpoint);
+  const [isMiniScreen, setIsMiniScreen] = useState(window.innerWidth < MINI_SCREEN_WIDTH);
 
   useEffect(() => {
     fetchReviews();
+
+    const handleResize = () => {
+      setIsMiniScreen(window.innerWidth < MINI_SCREEN_WIDTH);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [dormId]);
 
   const fetchReviews = async () => {
@@ -73,8 +80,14 @@ function ReviewComponent({ dormId }) {
         </p>
       ) : (
         <div className="review-columns">
-          <ReviewColumn reviews={leftReviews} showDetails={showDetails} />
-          <ReviewColumn reviews={rightReviews} showDetails={showDetails} />
+          {isMiniScreen ? (
+            <ReviewColumn reviews={filteredReviews} showDetails={showDetails} />
+          ) : (
+            <>
+              <ReviewColumn reviews={filteredReviews.slice(0, Math.ceil(filteredReviews.length / 2))} showDetails={showDetails} />
+              <ReviewColumn reviews={filteredReviews.slice(Math.ceil(filteredReviews.length / 2))} showDetails={showDetails} />
+            </>
+          )}
         </div>
       )}
     </div>

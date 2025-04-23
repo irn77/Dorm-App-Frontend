@@ -1,0 +1,72 @@
+/* Ranked.css */
+
+.ranked-container {
+    padding: 2rem;
+    background-color: #1c1c1c;
+    border-radius: 12px;
+    max-width: 500px;        /* ✅ LIMIT WIDTH */
+    margin: 0 auto;      
+  }
+  
+  .ranked-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #f0f0f0;
+  }
+  
+  .ranked-card {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    
+  }
+  
+  .ranked-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .ranked-rank {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #444;
+    padding: 4px 12px;
+    border-radius: 6px;
+    color: #fff;
+  }
+  
+  .ranked-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fefefe;
+    text-decoration: none;
+  }
+  
+  .ranked-stars {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  
+  .star {
+    font-size: 1.3rem;
+    color: #ffd700; /* gold */
+    opacity: 0.8;
+  }
+  
+  .star.empty {
+    color: #555;
+  }
+  
+  .review-count {
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  

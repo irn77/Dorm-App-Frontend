@@ -1,0 +1,59 @@
+.neighborhoodCard {
+    border: 1px solid #ccc; /* Assuming colors.lightGray is something like #ccc */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    transition: transform 0.2s ease-in-out;
+    flex: 1 1 360px; /* Default width */
+    max-width: 100%;
+  }
+  
+  .neighborhoodCardLoading {
+    color: #fff; /* Assuming colors.white is #fff */
+    font-style: italic;
+  }
+  
+  .neighborhoodCardError {
+    background-color: #ffe0e0;
+    border-color: #ffdddd; /* Assuming colors.errorRed is something like #ffdddd */
+    color: #cc0000; /* Assuming colors.errorRed is something like #cc0000 */
+  }
+  
+  .neighborhoodCard h3 {
+    color: #fff; /* Assuming colors.white is #fff */
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid currentColor; /* Use currentColor to inherit the neighborhoodColor prop */
+  }
+  
+  .neighborhoodCard ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .neighborhoodCard li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .neighborhoodCard a {
+    color: #ddd; /* Assuming colors.lightGray is #ddd */
+    text-decoration: none;
+  }
+  
+  .neighborhoodCard a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Media query for small screens (adjust breakpoint as needed) */
+  @media (max-width: 467px) {
+    .neighborhoodCard {
+        max-width: 60%;
+      }
+  }

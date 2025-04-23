@@ -44,9 +44,11 @@ function DormLeftPanel({ dorm }) {
   const closeModal = () => setShowModal(false);
 
   const fieldConfig = [
+    { key: 'Population', label: 'Residents', icon: <Users size={20} /> },
     { key: 'University Theme House', label: 'Theme House', icon: <BookOpenCheck size={20} /> },
     { key: 'Notes', label: 'Notes', icon: <StickyNote size={20} /> },
   ];
+  
 
   const primaryDormInfo = dormData.find(
     (entry) => entry.House?.toLowerCase().trim() === subDorms[0].toLowerCase().trim()

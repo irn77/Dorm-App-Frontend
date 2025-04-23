@@ -52,9 +52,11 @@ function AddReview({ dormId, onReviewAdded }) {
         onClick={() => {
           if (!isLoggedIn) {
             setShowModal(true);
+            
             //setErrorMessage('You must sign in to add a review');
             //setTimeout(() => setErrorMessage(''), 3000);
           } else {
+            
             setShowModal(true);
           }
         }}
@@ -76,18 +78,27 @@ function AddReview({ dormId, onReviewAdded }) {
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label style={{ color: 'black' }}>Rating:</label>
-                <div className="star-rating" style={{ display: 'flex', justifyContent: 'center' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', gap: '5px', cursor: 'pointer' }}>
                   {[1, 2, 3, 4, 5].map((star) => (
                     <span
                       key={star}
-                      className={star <= rating ? 'star selected' : 'star'}
-                      onClick={() => setRating(star)}
+                      onClick={() => {
+                        console.log('Star clicked:', star);
+                        setRating(star);
+                      }}
+                      style={{
+                        fontSize: '24px',
+                        color: star <= rating ? 'gold' : 'gray',
+                        transition: 'color 0.2s',
+                        cursor: 'pointer',
+                      }}
                     >
                       ★
                     </span>
                   ))}
                 </div>
               </div>
+
 
               <div className="form-group">
                 <label style={{ color: 'black' }}>Review:</label>

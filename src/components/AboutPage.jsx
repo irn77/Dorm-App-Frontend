@@ -87,7 +87,7 @@ function AboutPage() {
           </p>
 
           <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8', color: colors.lightGray }}>
-            <strong>How:</strong> Students leave anonymous feedback and upload images about their dorms. Others can explore that feedback freely.
+            <strong>How:</strong> Students leave anonymous feedback and upload images of their dorms. Others can explore that feedback freely.
           </p>
 
           <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: colors.headingAccent }}>

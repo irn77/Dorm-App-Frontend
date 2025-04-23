@@ -9,7 +9,7 @@ function Review({ review, showDetails }) {
       border: `1px solid ${colors.reviewBorderBoxColor}`,       // THIS CONTROLS THE BORDER
       padding: '10px',
       margin: '5px 0',
-      borderRadius: '5px',
+      borderRadius: '10px',
       textAlign: 'left',
       width: '100%',           // make it fill the column
       boxSizing: 'border-box', // makes padding play nicely
