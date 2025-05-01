@@ -8,17 +8,12 @@ function AddReview({ dormId, onReviewAdded }) {
   const [showModal, setShowModal] = useState(false);
   const [rating, setRating] = useState(1);
   const [text, setText] = useState('');
+  const [giveawayEmail, setGiveawayEmail] = useState(''); // New state
   const [errorMessage, setErrorMessage] = useState('');
-  const [showSuccessModal, setShowSuccessModal] = useState(false); // New state for success modal
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    
-    // if (!isLoggedIn) {
-    //   setErrorMessage('You must sign in to add a review');
-    //   setTimeout(() => setErrorMessage(''), 3000);
-    //   return;
-    // }
+    e.preventDefault();
 
     try {
       const response = await fetch(`${API_BASE_URL}/api/reviews`, {
@@ -26,17 +21,23 @@ function AddReview({ dormId, onReviewAdded }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ dorm_id: dormId, rating, text, user_id: userId }),
+        body: JSON.stringify({
+          dorm_id: dormId,
+          rating,
+          text,
+          user_id: userId,
+          giveaway_email: giveawayEmail || null, // Optional field
+        }),
       });
 
       if (!response.ok) {
         throw new Error('Failed to add review');
       }
-      
+
       setShowModal(false);
       setErrorMessage('');
-      setShowSuccessModal(true); // Show success modal
-      setTimeout(() => setShowSuccessModal(false), 7000); // Hide success modal after 5 seconds
+      setShowSuccessModal(true);
+      setTimeout(() => setShowSuccessModal(false), 7000);
     } catch (err) {
       console.error('Error adding review:', err);
     }
@@ -44,15 +45,11 @@ function AddReview({ dormId, onReviewAdded }) {
 
   return (
     <div>
-      {/* Error Message */}
       {errorMessage && <div className="error-bar">{errorMessage}</div>}
 
-      <button
-  className="add-review-button"
-  onClick={() => setShowModal(true)}
->
-  <span className="plus-icon">+</span> Add Review
-</button>
+      <button className="add-review-button" onClick={() => setShowModal(true)}>
+        <span className="plus-icon">+</span> Add Review
+      </button>
 
       {showModal && (
         <div className="modal5">
@@ -72,10 +69,7 @@ function AddReview({ dormId, onReviewAdded }) {
                   {[1, 2, 3, 4, 5].map((star) => (
                     <span
                       key={star}
-                      onClick={() => {
-                        console.log('Star clicked:', star);
-                        setRating(star);
-                      }}
+                      onClick={() => setRating(star)}
                       style={{
                         fontSize: '24px',
                         color: star <= rating ? 'gold' : 'gray',
@@ -89,7 +83,6 @@ function AddReview({ dormId, onReviewAdded }) {
                 </div>
               </div>
 
-
               <div className="form-group">
                 <label style={{ color: 'black' }}>Review:</label>
                 <textarea
@@ -98,6 +91,32 @@ function AddReview({ dormId, onReviewAdded }) {
                   placeholder="Write your review here..."
                 />
               </div>
+
+              <div className="form-group">
+  <label style={{ color: 'black' }}>
+    (Optional) Enter email for $20 giveaway:{' '}
+    <a
+      href="/about"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        marginLeft: '8px',
+        fontSize: '0.9rem',
+        color: '#007bff',
+        textDecoration: 'underline',
+      }}
+    >
+      Learn more
+    </a>
+  </label>
+  <input
+    type="email"
+    value={giveawayEmail}
+    onChange={(e) => setGiveawayEmail(e.target.value)}
+    placeholder="you@stanford.edu"
+  />
+</div>
+
 
               <button type="submit" className="submit-button">
                 Submit Review

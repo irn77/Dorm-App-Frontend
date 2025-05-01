@@ -11,6 +11,28 @@ function HomePage() {
     <AuthProvider>
       <div className="homepage-container" style={{ backgroundColor: colors.darkBg, color: colors.white }}>
         <Navbar />
+        <div
+        style={{
+          backgroundColor: 'green',
+          color: 'white',
+          padding: '12px 20px',
+          textAlign: 'center',
+          fontWeight: 'bold',
+          fontSize: '1.1rem',
+        }}
+      >
+        Limited Time: Leave a review to enter our $100 giveaway!
+        <a
+          href="/about"
+          style={{
+            color: 'white',
+            marginLeft: '10px',
+            textDecoration: 'underline',
+          }}
+        >
+          Learn more →
+        </a>
+      </div>
 
         <div className="hero-section">
           {/* Left Text Area */}
