@@ -24,15 +24,15 @@ function Footer() {
           gap: '10px',
         }}
       >
-        <div style={{ fontWeight: 'bold', fontSize: '18px' }}>CardinalDorms</div>
-        <div style={{ color: colors.mediumGray }}>© 2025 CardinalDorms</div>
+        <div style={{ fontWeight: 'bold', fontSize: '18px' }}>TreeDorms</div>
+        <div style={{ color: colors.mediumGray }}>© 2025 TreeDorms</div>
       </div>
 
       <div style={{ color: colors.lightGray }}>
         <p>
           Have an idea to improve the site? Let us know at{' '}
           <a
-            href="mailto:cardinaldorms@gmail.com"
+            href="mailto:TreeDorms@gmail.com"
             style={{
               color: colors.orange,
               textDecoration: 'none',
@@ -41,7 +41,7 @@ function Footer() {
             onMouseOver={(e) => (e.target.style.textDecoration = 'underline')}
             onMouseOut={(e) => (e.target.style.textDecoration = 'none')}
           >
-            cardinaldorms@gmail.com
+            TreeDorms@gmail.com
           </a>
         </p>
       </div>

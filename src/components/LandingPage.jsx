@@ -49,7 +49,7 @@ function LandingPage() {
         
         <div id="home" className="hero-section" style={{ padding: '4rem 2rem' }}>
           <div className="hero-left">
-            <h1>Welcome to <span className="highlight">CardinalDorms</span></h1>
+            <h1>Welcome to <span className="highlight">TreeDorms</span></h1>
             <p>A dorm review system you can trust. Built by students, for students.</p>
             <div className="hero-links">
               <Link to="/about" className="hero-link">Learn more →</Link>
@@ -81,11 +81,11 @@ function LandingPage() {
           }}
         >
           <h1 style={{ fontSize: '3rem', marginBottom: '1.5rem', color: '#f4a261' }}>
-            Learn About CardinalDorms
+            Learn About TreeDorms
           </h1>
 
           <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8' }}>
-            <strong>What:</strong> CardinalDorms is a transparent hub for Stanford dorm reviews...
+            <strong>What:</strong> TreeDorms is a transparent hub for Stanford dorm reviews...
           </p>
 
           <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8' }}>
@@ -104,7 +104,7 @@ function LandingPage() {
               lineHeight: '1.7',
             }}
           >
-            "We hope CardinalDorms empowers you to discover the best fit..."
+            "We hope TreeDorms empowers you to discover the best fit..."
           </p>
 
           <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: '#FF4500' }}>FAQ</h2>

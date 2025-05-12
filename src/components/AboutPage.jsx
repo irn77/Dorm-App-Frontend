@@ -76,7 +76,7 @@ function AboutPage() {
           }}
         >
           <h1 style={{ fontSize: headingFontSize, marginBottom: '1.5rem', color: colors.orange }}>
-  CardinalDorms $100 Giveaway 🎉
+  TreeDorms $100 Giveaway 🎉
 </h1>
 
 <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8', color: colors.lightGray }}>
@@ -108,11 +108,11 @@ function AboutPage() {
 />
 
           <h1 style={{ fontSize: headingFontSize, marginBottom: '1.5rem', color: colors.orange }}>
-            Learn About CardinalDorms
+            Learn About TreeDorms
           </h1>
 
           <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8', color: colors.lightGray }}>
-            <strong>What:</strong> CardinalDorms is a transparent hub for Stanford dorm reviews. Students leave honest feedback — both good and bad — so you get a real sense of what living there is like.
+            <strong>What:</strong> TreeDorms is a transparent hub for Stanford dorm reviews. Students leave honest feedback — both good and bad — so you get a real sense of what living there is like.
           </p>
 
           <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8', color: colors.lightGray }}>

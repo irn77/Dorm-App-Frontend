@@ -26,7 +26,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <a href="#home" className="navbar-logo">CardinalDorms</a>
+        <a href="#home" className="navbar-logo">TreeDorms</a>
         <SearchBar customStyles={{ backgroundColor: '#2c2c2c', border: '1px solid #555' }} />
       </div>
 

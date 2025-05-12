@@ -38,7 +38,7 @@ function HomePage() {
           {/* Left Text Area */}
           <div className="hero-left">
             <h1>
-              Welcome to <span className="highlight">CardinalDorms</span>
+              Welcome to <span className="highlight">TreeDorms</span>
             </h1>
             <p style={{ color: colors.lightGray }}>
               A dorm review system you can trust. Built by students, for students.
@@ -157,7 +157,7 @@ function HomePage() {
         >
          
           <div style={{ padding: 0 }}>
-            <Header headerText="CardinalDorms" />
+            <Header headerText="TreeDorms" />
           </div>
 
           

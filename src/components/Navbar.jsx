@@ -16,7 +16,7 @@ function Navbar() {
       {/* Left section: Logo and search (visible on larger screens) */}
       <div className="navbar-left">
       <NavLink to="/" className="navbar-logo" style={{ color: colors.white }}>
-          CardinalDorms
+          TreeDorms
         </NavLink>
 
         {/* Shown only on medium+ screens */}

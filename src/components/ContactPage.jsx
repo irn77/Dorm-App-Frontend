@@ -17,8 +17,8 @@ function ContactPage() {
 
           <div className="email-card">
             <Mail size={28} className="email-icon" />
-            <a href="mailto:cardinaldorms@gmail.com" className="email-link">
-              cardinaldorms@gmail.com
+            <a href="mailto:TreeDorms@gmail.com" className="email-link">
+              TreeDorms@gmail.com
             </a>
           </div>
         </div>
