@@ -93,28 +93,8 @@ function AddReview({ dormId, onReviewAdded }) {
               </div>
 
               <div className="form-group">
-  <label style={{ color: 'black' }}>
-    (Optional) Enter email for $20 giveaway:{' '}
-    <a
-      href="/about"
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{
-        marginLeft: '8px',
-        fontSize: '0.9rem',
-        color: '#007bff',
-        textDecoration: 'underline',
-      }}
-    >
-      Learn more
-    </a>
-  </label>
-  <input
-    type="email"
-    value={giveawayEmail}
-    onChange={(e) => setGiveawayEmail(e.target.value)}
-    placeholder="you@stanford.edu"
-  />
+
+  
 </div>
 
 

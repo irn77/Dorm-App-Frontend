@@ -75,37 +75,7 @@ function AboutPage() {
             textAlign: 'left',
           }}
         >
-          <h1 style={{ fontSize: headingFontSize, marginBottom: '1.5rem', color: colors.orange }}>
-  TreeDorms $100 Giveaway 🎉
-</h1>
-
-<p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: '1.8', color: colors.lightGray }}>
-  We're giving away <strong>$20</strong> dollars to 5 randomly selected users who leave a dorm review. It only takes 2 minutes. 
-</p>
-<FAQItem
-  question="See Details"
-  answer={
-    <>
-      <ul style={{ paddingLeft: '1.2rem', marginTop: '0.75rem', color: colors.lightGray }}>
-        <li style={{ marginBottom: '0.75rem' }}>
-          Only reviews submitted during <strong>May 2025</strong> are eligible.
-        </li>
-        <li style={{ marginBottom: '0.75rem' }}>
-          Winners will be contacted via email at the <strong>end of the month</strong>.
-        </li>
-        <li style={{ marginBottom: '0.75rem' }}>
-          Your email is used <strong>only</strong> to notify winners — it's never shared or linked to your review.
-        </li>
-        <li>
-          Adding your email is <strong>completely optional</strong>. If you don’t include it, your review will still be submitted normally — you just won’t be entered into the giveaway.
-        </li>
-        <li>
-          More questions? Contact us <a href="/contact" style={{ color: colors.orange, textDecoration: 'underline' }}>here</a> — we'd love to help.
-        </li>
-      </ul>
-    </>
-  }
-/>
+          
 
           <h1 style={{ fontSize: headingFontSize, marginBottom: '1.5rem', color: colors.orange }}>
             Learn About TreeDorms
